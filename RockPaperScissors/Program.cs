@@ -30,9 +30,9 @@ namespace RockPaperScissors
 
             int playerWinCount = 0;
             int CpuWinCount = 0;
+            Random rnd = new Random();
 
             //GAME EXECUTION-------------------------------------------------------------------------------------------
-
 
             while ((playerWinCount < 5 && CpuWinCount < 5)) 
             {
@@ -51,7 +51,7 @@ namespace RockPaperScissors
                     {
                         if (playerInputInt <= 0 || playerInputInt > 5)
                         {
-                            Console.WriteLine("Wrong input, try again: ");
+                            Console.WriteLine("Input out of bounds, select a number between 1 and 5: ");
                         }
                         else
                         {
@@ -68,12 +68,14 @@ namespace RockPaperScissors
                     }
                     else
                     {
-                        if (!stop) { Console.WriteLine("Wrong input, try again: "); }
+                        if (!stop) 
+                        { 
+                            Console.WriteLine("Wrong input, try again: "); 
+                        }
                     }
                 }
 
                 //Input management: CPU
-                Random rnd = new Random();
                 int RndChoiceCPU = rnd.Next(1, 5);
                 CpuChoice = (Choices)(RndChoiceCPU);
                 Console.WriteLine("Computer's Input : " + (Choices)RndChoiceCPU);
@@ -92,32 +94,65 @@ namespace RockPaperScissors
                 }
 
                 //Game execution
-                if (playerChoice == CpuChoice) { Console.WriteLine("Tie"); }
+                if (playerChoice == CpuChoice) 
+                {
+                    Console.WriteLine("Tie"); 
+                }
                 switch (playerChoice)
                 {
                     case Choices.Rock:
-                        if (CpuChoice == Choices.Spock || CpuChoice == Choices.Paper) { ComputerWins(); }
-                        else if (CpuChoice == Choices.Scissors || CpuChoice == Choices.Lizard) { PlayerWins(); }
+                        if (CpuChoice == Choices.Spock || CpuChoice == Choices.Paper) 
+                        { 
+                            ComputerWins(); 
+                        }
+                        else if (CpuChoice == Choices.Scissors || CpuChoice == Choices.Lizard) 
+                        { 
+                            PlayerWins();
+                        }
                         break;
 
                     case Choices.Lizard:
-                        if (CpuChoice == Choices.Rock || CpuChoice == Choices.Scissors) { ComputerWins(); }
-                        else if (CpuChoice == Choices.Spock || CpuChoice == Choices.Paper) { PlayerWins(); }
+                        if (CpuChoice == Choices.Rock || CpuChoice == Choices.Scissors) 
+                        { 
+                            ComputerWins(); 
+                        }
+                        else if (CpuChoice == Choices.Spock || CpuChoice == Choices.Paper) 
+                        { 
+                            PlayerWins(); 
+                        }
                         break;
 
                     case Choices.Spock:
-                        if (CpuChoice == Choices.Paper || CpuChoice == Choices.Lizard) { ComputerWins(); }
-                        else if (CpuChoice == Choices.Scissors || CpuChoice == Choices.Rock) { PlayerWins(); }
+                        if (CpuChoice == Choices.Paper || CpuChoice == Choices.Lizard) 
+                        { 
+                            ComputerWins(); 
+                        }
+                        else if (CpuChoice == Choices.Scissors || CpuChoice == Choices.Rock) 
+                        { 
+                            PlayerWins(); 
+                        }
                         break;
 
                     case Choices.Paper:
-                        if (CpuChoice == Choices.Lizard || CpuChoice == Choices.Scissors) { ComputerWins(); }
-                        else if (CpuChoice == Choices.Rock || CpuChoice == Choices.Spock) { PlayerWins(); }
+                        if (CpuChoice == Choices.Lizard || CpuChoice == Choices.Scissors) 
+                        { 
+                            ComputerWins(); 
+                        }
+                        else if (CpuChoice == Choices.Rock || CpuChoice == Choices.Spock) 
+                        { 
+                            PlayerWins(); 
+                        }
                         break;
 
                     case Choices.Scissors:
-                        if (CpuChoice == Choices.Rock || CpuChoice == Choices.Spock) { ComputerWins(); }
-                        else if (CpuChoice == Choices.Paper || CpuChoice == Choices.Lizard) { PlayerWins(); }
+                        if (CpuChoice == Choices.Rock || CpuChoice == Choices.Spock) 
+                        { 
+                            ComputerWins(); 
+                        }
+                        else if (CpuChoice == Choices.Paper || CpuChoice == Choices.Lizard) 
+                        { 
+                            PlayerWins(); 
+                        }
                         break;
                 }
 
